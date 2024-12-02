@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class ShopeePayment extends JFrame implements ActionListener, ConfirmPayment {
 
-  final JLabel bkash_lbl;
+  final JLabel ada_lbl;
   final JTextField num_fld;
   final JButton back_btn;
   final JButton next_btn;
@@ -29,8 +29,8 @@ public class ShopeePayment extends JFrame implements ActionListener, ConfirmPaym
     Image i = img.getImage();
     Image new_img = i.getScaledInstance(854, 580, Image.SCALE_SMOOTH);
     img = new ImageIcon(new_img);
-    bkash_lbl = new JLabel("", img, JLabel.CENTER);
-    bkash_lbl.setBounds(-190, -220, 854, 580);
+    ada_lbl = new JLabel("", img, JLabel.CENTER);
+    ada_lbl.setBounds(-190, -220, 854, 580);
 
     num_fld = new JTextField();
     num_fld.setBounds(260, 250, 300, 25);
@@ -39,7 +39,7 @@ public class ShopeePayment extends JFrame implements ActionListener, ConfirmPaym
     pass_fld.setBounds(260, 380, 300, 25);
     this.add(pass_fld);
 
-    this.add(bkash_lbl);
+    this.add(ada_lbl);
 
     back_btn = new JButton("Back");
     back_btn.setFont(new Font("Abadi", Font.BOLD, 15));
@@ -57,7 +57,7 @@ public class ShopeePayment extends JFrame implements ActionListener, ConfirmPaym
     next_btn.addActionListener(this);
     this.add(next_btn);
 
-    this.add(bkash_lbl);
+    this.add(ada_lbl);
 
     setVisible(true);
   }

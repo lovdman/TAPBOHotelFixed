@@ -131,10 +131,10 @@ public class ForgetPass extends JFrame implements ActionListener {
     if (e.getSource() == nextButton) {
       try {
         // Open the file containing user login information
-        File userfile = new File("./files/user_login.txt");
+        File userfile = new File("./databeast/user_login.txt");
         if (userfile.exists()) {
           // Count the total number of lines in the file
-          BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
+          BufferedReader readFile = new BufferedReader(new FileReader("./databeast/user_login.txt"));
           while (readFile.readLine() != null) {
             totalLines++;
           }
@@ -147,7 +147,7 @@ public class ForgetPass extends JFrame implements ActionListener {
         } else {
           // Loop through each line in the file and compare it to the user input
           for (int i = 0; i < totalLines; i++) {
-            String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
+            String line = Files.readAllLines(Paths.get("./databeast/user_login.txt")).get(i);
             if (line.equals(user)) {
               // If a match is found, set a flag variable and exit the loop
               System.out.println("User name found");

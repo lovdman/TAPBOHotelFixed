@@ -395,7 +395,7 @@ public class Edit extends JFrame implements ActionListener {
 
         try {
           // Check if the username exists in the user_login.txt file
-          FileReader fr1 = new FileReader("./files/user_login.txt");
+          FileReader fr1 = new FileReader("./databeast/user_login.txt");
           BufferedReader br1 = new BufferedReader(fr1);
           String currentLine1;
           int target = 0;
@@ -411,10 +411,10 @@ public class Edit extends JFrame implements ActionListener {
           br1.close();
 
           // Create a temporary file for writing updated data
-          String tempfile = "./files/temp3.txt";
+          String tempfile = "./databeast/temp3.txt";
 
-          File oldFile = new File("./files/user_login.txt");
-          File newFile = new File("./files/temp3.txt");
+          File oldFile = new File("./databeast/user_login.txt");
+          File newFile = new File("./databeast/temp3.txt");
           System.out.println("temp file created");
           String currentLine;
 
@@ -423,7 +423,7 @@ public class Edit extends JFrame implements ActionListener {
           PrintWriter printWriter2 = new PrintWriter(bufferedWriter2);
 
           // Read the original file and update the required entry
-          FileReader fr = new FileReader("./files/user_login.txt");
+          FileReader fr = new FileReader("./databeast/user_login.txt");
           BufferedReader br = new BufferedReader(fr);
 
           int l = 0;
@@ -445,7 +445,7 @@ public class Edit extends JFrame implements ActionListener {
           // Delete the old file and rename the temporary file
           oldFile.delete();
           System.out.println("Old file deleted");
-          File dumb = new File("./files/user_login.txt");
+          File dumb = new File("./databeast/user_login.txt");
           newFile.renameTo(dumb);
           System.out.println("temp file name updated to orginal");
 
@@ -463,14 +463,14 @@ public class Edit extends JFrame implements ActionListener {
 
         try {
           // Read the checkIn.txt file
-          FileReader fileRd = new FileReader("./files/checkIn.txt");
+          FileReader fileRd = new FileReader("./databeast/checkIn.txt");
           BufferedReader BufRead = new BufferedReader(fileRd);
 
           // Loop through each line in the file
           while ((BufRead.readLine()) != null) {
             try {
               // Read the checkIn.txt file again for searching
-              FileReader fileRd1 = new FileReader("./files/checkIn.txt");
+              FileReader fileRd1 = new FileReader("./databeast/checkIn.txt");
               BufferedReader BufRead1 = new BufferedReader(fileRd1);
               String crntLine1;
               int tar1 = 0;
@@ -488,10 +488,10 @@ public class Edit extends JFrame implements ActionListener {
               BufRead1.close();
 
               // Create a temporary file and copy contents with the new name
-              String tempfl1 = "./files/temp4.txt";
+              String tempfl1 = "./databeast/temp4.txt";
               System.out.println("temp file created");
-              File oldF1 = new File("./files/checkIn.txt");
-              File newF1 = new File("./files/temp4.txt");
+              File oldF1 = new File("./databeast/checkIn.txt");
+              File newF1 = new File("./databeast/temp4.txt");
               String cLine2;
 
               // Write to the temporary file
@@ -500,7 +500,7 @@ public class Edit extends JFrame implements ActionListener {
               PrintWriter pntWrite2 = new PrintWriter(bufWrite2);
 
               // Read from the checkIn.txt file again
-              FileReader fr3 = new FileReader("./files/checkIn.txt");
+              FileReader fr3 = new FileReader("./databeast/checkIn.txt");
               BufferedReader br3 = new BufferedReader(fr3);
 
               int line2 = 0;
@@ -523,7 +523,7 @@ public class Edit extends JFrame implements ActionListener {
               fWrite2.close();
               // Delete the original file
               oldF1.delete();
-              File dum1 = new File("./files/checkIn.txt");
+              File dum1 = new File("./databeast/checkIn.txt");
               // Rename the temporary file to the original file
               newF1.renameTo(dum1);
               System.out.println("temp file renamed to original file");
@@ -537,8 +537,8 @@ public class Edit extends JFrame implements ActionListener {
           BufRead.close();
 
           // Delete the destination file if it exists
-          File sourceFile = new File("./files/temp4.txt");
-          File destinationFile = new File("./files/checkIn.txt");
+          File sourceFile = new File("./databeast/temp4.txt");
+          File destinationFile = new File("./databeast/checkIn.txt");
 
           if (destinationFile.exists()) {
             // Delete the destination file if it already exists
@@ -572,14 +572,14 @@ public class Edit extends JFrame implements ActionListener {
         try {
           // Count total lines in user_login.txt
           int totalLines = 0;
-          BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
+          BufferedReader readFile = new BufferedReader(new FileReader("./databeast/user_login.txt"));
           while (readFile.readLine() != null) {
             totalLines++;
           }
           readFile.close();
 
           // Admin login file checked
-          BufferedReader adminFile = new BufferedReader(new FileReader("./files/admin_login.txt"));
+          BufferedReader adminFile = new BufferedReader(new FileReader("./databeast/admin_login.txt"));
           // Count total lines in admin_login.txt
           int totalLines2 = 0;
           while (adminFile.readLine() != null) {
@@ -593,7 +593,7 @@ public class Edit extends JFrame implements ActionListener {
           // for user
           // Check if username exists in user_login.txt
           for (int i = 0; i < totalLines; i++) {
-            String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
+            String line = Files.readAllLines(Paths.get("./databeast/user_login.txt")).get(i);
             if (line.equals("User Name : " + newPhoneNumber)) {
               userflag = true;
               break;
@@ -603,7 +603,7 @@ public class Edit extends JFrame implements ActionListener {
           // for admin
           // Check if username exists in admin_login.txt
           for (int i = 0; i < totalLines2; i++) {
-            String line = Files.readAllLines(Paths.get("./files/admin_login.txt")).get(i);
+            String line = Files.readAllLines(Paths.get("./databeast/admin_login.txt")).get(i);
             if (line.equals("User Name : " + newPhoneNumber)) {
               adminflag = true;
               break;
@@ -612,7 +612,7 @@ public class Edit extends JFrame implements ActionListener {
 
           if (!adminflag && !userflag) {
             // Find the line number of the current username in user_login.txt
-            FileReader fr1 = new FileReader("./files/user_login.txt");
+            FileReader fr1 = new FileReader("./databeast/user_login.txt");
             BufferedReader br1 = new BufferedReader(fr1);
             String currentline1;
             int target = 0;
@@ -626,9 +626,9 @@ public class Edit extends JFrame implements ActionListener {
             fr1.close();
             br1.close();
 
-            String tempfile = "./files/temp3.txt";
-            File oldFile = new File("./files/user_login.txt");
-            File newFile = new File("./files/temp3.txt");
+            String tempfile = "./databeast/temp3.txt";
+            File oldFile = new File("./databeast/user_login.txt");
+            File newFile = new File("./databeast/temp3.txt");
             System.out.println("temp file created");
             String currentline;
 
@@ -637,7 +637,7 @@ public class Edit extends JFrame implements ActionListener {
             BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter2);
             PrintWriter printWriter2 = new PrintWriter(bufferedWriter2);
 
-            FileReader fr = new FileReader("./files/user_login.txt");
+            FileReader fr = new FileReader("./databeast/user_login.txt");
             BufferedReader br = new BufferedReader(fr);
 
             int l = 0;
@@ -657,7 +657,7 @@ public class Edit extends JFrame implements ActionListener {
             bufferedWriter2.close();
             fileWriter2.close();
             oldFile.delete();
-            File dumb = new File("./files/user_login.txt");
+            File dumb = new File("./databeast/user_login.txt");
             newFile.renameTo(dumb);
             System.out.println("temp file renamed");
 
@@ -704,7 +704,7 @@ public class Edit extends JFrame implements ActionListener {
 
         try {
           // Open the user_login.txt file for reading
-          FileReader fr1 = new FileReader("./files/user_login.txt");
+          FileReader fr1 = new FileReader("./databeast/user_login.txt");
           BufferedReader br1 = new BufferedReader(fr1);
           String currentline1;
           int target = 0;
@@ -720,9 +720,9 @@ public class Edit extends JFrame implements ActionListener {
           fr1.close();
           br1.close();
 
-          String tempfile = "./files/temp3.txt";
-          File oldFile = new File("./files/user_login.txt");
-          File newFile = new File("./files/temp3.txt");
+          String tempfile = "./databeast/temp3.txt";
+          File oldFile = new File("./databeast/user_login.txt");
+          File newFile = new File("./databeast/temp3.txt");
           System.out.println("temp file created");
           String currentline;
 
@@ -732,7 +732,7 @@ public class Edit extends JFrame implements ActionListener {
           PrintWriter printWriter2 = new PrintWriter(bufferedWriter2);
 
           // Open the user_login.txt file for reading again
-          FileReader fr = new FileReader("./files/user_login.txt");
+          FileReader fr = new FileReader("./databeast/user_login.txt");
           BufferedReader br = new BufferedReader(fr);
 
           int l = 0;
@@ -753,7 +753,7 @@ public class Edit extends JFrame implements ActionListener {
           bufferedWriter2.close();
           fileWriter2.close();
           oldFile.delete();
-          File dumb = new File("./files/user_login.txt");
+          File dumb = new File("./databeast/user_login.txt");
           newFile.renameTo(dumb);
           System.out.println("temp file renamed");
           Login.phoneNumber = newNumber; // Update the phoneNumber variable in the Login class

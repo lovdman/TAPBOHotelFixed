@@ -321,10 +321,10 @@ public class CheckOut extends JFrame
             // Input room number to search for
             String roomNo = (String) search_combo.getSelectedItem();
             // Create a temporary file to write updated data to
-            File tempFile = new File("./files/temp.txt");
+            File tempFile = new File("./databeast/temp.txt");
             System.out.println("temp.txt file created");
             PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-            BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"));
             String line2;
             while ((line2 = br.readLine()) != null) {
               if (line2.equals("Rooms Details")) {
@@ -352,7 +352,7 @@ public class CheckOut extends JFrame
             br.close();
             pw.close();
             // Replace the original file with the temporary file
-            File originalFile = new File("./files/rooms.txt");
+            File originalFile = new File("./databeast/rooms.txt");
             if (originalFile.delete()) {
               boolean renamed = tempFile.renameTo(originalFile);
               if (renamed) {
@@ -430,7 +430,7 @@ public class CheckOut extends JFrame
           model.setRowCount(0);
 
           // Read the rooms.txt file
-          try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+          try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
               if (!line.equals("Rooms Details")) {
@@ -499,8 +499,8 @@ public class CheckOut extends JFrame
   public void deleteRoomEntry() {
     System.out.println("deleteRoomEntry funtion called");
     try {
-      File inputFile = new File("./files/checkIn.txt");
-      File tempFile = new File("./files/checkIn_temp.txt");
+      File inputFile = new File("./databeast/checkIn.txt");
+      File tempFile = new File("./databeast/checkIn_temp.txt");
       System.out.println("temp file created");
 
       BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -556,7 +556,7 @@ public class CheckOut extends JFrame
     model = (DefaultTableModel) table.getModel();
     model.setRowCount(0);
 
-    try (BufferedReader br1 = new BufferedReader(new FileReader("./files/checkIn.txt"))) {
+    try (BufferedReader br1 = new BufferedReader(new FileReader("./databeast/checkIn.txt"))) {
       String line1;
 
       while ((line1 = br1.readLine()) != null) {
@@ -569,7 +569,7 @@ public class CheckOut extends JFrame
             // System.out.println(rowData1);
           } // set the last element to empty string
 
-          try (BufferedReader br2 = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+          try (BufferedReader br2 = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
             String line2;
 
             while ((line2 = br2.readLine()) != null) {
@@ -640,7 +640,7 @@ public class CheckOut extends JFrame
 
   public void roomSearch() {
     System.out.println("roomSearch funtion called");
-    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+    try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
       String line;
       while ((line = br.readLine()) != null) {
         if (line.equals("Rooms Details")) {

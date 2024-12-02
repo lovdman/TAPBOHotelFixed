@@ -8,12 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * The AdaPayment class represents a JFrame window for Bkash payment functionality. It implements
+ * The AdaPayment class represents a JFrame window for Ada payment functionality. It implements
  * the ActionListener interface and uses the ConfirmPayment interface for confirming payments.
  */
 public class AdaPayment extends JFrame implements ActionListener, ConfirmPayment {
 
-  final JLabel bkash_lbl; // Label to display Bkash logo
+  final JLabel ada_lbl; // Label to display Ada logo
   final JTextField num_fld; // Text field for entering the mobile number
   final JButton back_btn; // Button for navigating back
   final JButton next_btn; // Button for proceeding to the next step
@@ -33,13 +33,13 @@ public class AdaPayment extends JFrame implements ActionListener, ConfirmPayment
     getContentPane().setBackground(Color.GRAY);
     setResizable(false);
 
-    // Load and display Bkash logo
+    // Load and display Ada logo
     ImageIcon img = new ImageIcon("images/AdaPayment.png");
     Image i = img.getImage();
     Image new_img = i.getScaledInstance(854, 580, Image.SCALE_SMOOTH);
     img = new ImageIcon(new_img);
-    bkash_lbl = new JLabel("", img, JLabel.CENTER);
-    bkash_lbl.setBounds(-190, -220, 854, 580);
+    ada_lbl = new JLabel("", img, JLabel.CENTER);
+    ada_lbl.setBounds(-190, -220, 854, 580);
 
     // Create and position text field for entering mobile number
     num_fld = new JTextField();
@@ -51,8 +51,8 @@ public class AdaPayment extends JFrame implements ActionListener, ConfirmPayment
     pass_fld.setBounds(260, 380, 300, 25);
     this.add(pass_fld);
 
-    // Add Bkash logo label to the JFrame
-    this.add(bkash_lbl);
+    // Add Ada logo label to the JFrame
+    this.add(ada_lbl);
 
     // Create and position back button
     back_btn = new JButton("Back");
@@ -72,8 +72,8 @@ public class AdaPayment extends JFrame implements ActionListener, ConfirmPayment
     next_btn.addActionListener(this);
     this.add(next_btn);
 
-    // Add Bkash logo label to the JFrame
-    this.add(bkash_lbl);
+    // Add Ada logo label to the JFrame
+    this.add(ada_lbl);
 
     // Set the JFrame visible
     setVisible(true);

@@ -356,7 +356,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myinterface.Wr
         } else {
 
           try {
-            String line = "./files/checkIn.txt";
+            String line = "./databeast/checkIn.txt";
             try {
               File file = new File(line);
               // Create a new file if it doesn't exist
@@ -389,9 +389,9 @@ public class UCheckIn extends ShowRoom implements ActionListener, myinterface.Wr
                 // Input room number to search for
                 String roomNo = Objects.requireNonNull(roomNo_Box.getSelectedItem()).toString();
                 // Create a temporary file to write updated data to
-                File tempFile = new File("./files/temp.txt");
+                File tempFile = new File("./databeast/temp.txt");
                 PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-                BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
+                BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"));
                 String line2;
                 while ((line2 = br.readLine()) != null) {
                   if (line2.equals("Rooms Details")) {
@@ -416,7 +416,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myinterface.Wr
                 br.close();
                 pw.close();
                 // Replace the original file with the temporary file
-                File originalFile = new File("./files/rooms.txt");
+                File originalFile = new File("./databeast/rooms.txt");
                 if (originalFile.delete()) {
                   boolean Rename = tempFile.renameTo(originalFile);
                   if (Rename) {
@@ -475,7 +475,7 @@ public class UCheckIn extends ShowRoom implements ActionListener, myinterface.Wr
     } else if (e.getSource() == roomNo_Box) {
       // Retrieve the selected room number
       roomNo = (String) roomNo_Box.getSelectedItem();
-      try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+      try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
         String line;
         while ((line = br.readLine()) != null) {
           if (line.equals("Rooms Details")) {

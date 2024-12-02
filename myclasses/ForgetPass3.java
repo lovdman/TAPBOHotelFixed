@@ -191,7 +191,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
 
         try {
           // Read the user_login.txt file
-          File userfile = new File("./files/user_login.txt");
+          File userfile = new File("./databeast/user_login.txt");
           if (userfile.exists()) {
             System.out.println("Reading Text From user_login.txt");
           }
@@ -214,9 +214,9 @@ public class ForgetPass3 extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(
                 null, "Password not matching", "Error", JOptionPane.WARNING_MESSAGE);
           } else {
-            String tempfile = "./files/temp.txt";
-            File oldFile = new File("./files/user_login.txt");
-            File newFile = new File("./files/temp.txt");
+            String tempfile = "./databeast/temp.txt";
+            File oldFile = new File("./databeast/user_login.txt");
+            File newFile = new File("./databeast/temp.txt");
             System.out.println("temp file created");
             int l = 0;
 
@@ -227,7 +227,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
-            FileReader fr = new FileReader("./files/user_login.txt");
+            FileReader fr = new FileReader("./databeast/user_login.txt");
             BufferedReader br = new BufferedReader(fr);
 
             int n = (ForgetPass.deleteLine) + 2;
@@ -250,7 +250,7 @@ public class ForgetPass3 extends JFrame implements ActionListener {
             // Delete the old file and rename the temp file
             oldFile.delete();
             System.out.println("Original file deleted");
-            File dumb = new File("./files/user_login.txt");
+            File dumb = new File("./databeast/user_login.txt");
             newFile.renameTo(dumb);
             System.out.println("temp file rename to original file");
             // Close the current window and open the Login window

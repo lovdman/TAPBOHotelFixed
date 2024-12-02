@@ -311,7 +311,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myinterface.Wri
               null, "mobile number must be only 11 digit", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
           try {
-            String CheckinFilePath = "./files/checkIn.txt";
+            String CheckinFilePath = "./databeast/checkIn.txt";
             try {
               // Create a new file or use an existing file for check-in data
               File file = new File(CheckinFilePath);
@@ -347,11 +347,11 @@ public class CheckIn extends ShowRoom implements ActionListener, myinterface.Wri
                 // Input room number to search for
                 String roomNo = Objects.requireNonNull(roomNo_Box.getSelectedItem()).toString();
                 // Create a temporary file to write updated data to
-                File tempFile = new File("./files/temp.txt");
+                File tempFile = new File("./databeast/temp.txt");
                 System.out.println("temp file created");
                 PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                 System.out.println("Writting into temp file");
-                BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"));
+                BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"));
                 System.out.println("Reading from room.txt");
                 String line2;
                 while ((line2 = br.readLine()) != null) {
@@ -381,7 +381,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myinterface.Wri
                 br.close();
                 pw.close();
                 // Replace the original file with the temporary file
-                File originalFile = new File("./files/rooms.txt");
+                File originalFile = new File("./databeast/rooms.txt");
                 if (originalFile.delete()) {
                   boolean renamed = tempFile.renameTo(originalFile);
                   if (renamed) {
@@ -435,7 +435,7 @@ public class CheckIn extends ShowRoom implements ActionListener, myinterface.Wri
 
     } else if (e.getSource() == roomNo_Box) {
       roomNo = (String) roomNo_Box.getSelectedItem(); // Get the selected room number
-      try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+      try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
         String line;
         while ((line = br.readLine()) != null) {
           if (line.equals("Rooms Details")) {

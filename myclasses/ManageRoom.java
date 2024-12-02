@@ -130,7 +130,7 @@ public class ManageRoom extends JFrame implements ActionListener {
     Font headerFont = header.getFont();
     header.setFont(headerFont.deriveFont(Font.BOLD)); // Make the font bold
 
-    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+    try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
       String line;
       while ((line = br.readLine()) != null) {
         if (!line.equals("Rooms Details")) {
@@ -242,7 +242,7 @@ public class ManageRoom extends JFrame implements ActionListener {
       // Check if room number and price are not empty
       if (!romNumEmpty && !priceEmpty) {
         boolean flag = false;
-        try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
           String line;
           // Check if the room number already exists in the file
           System.out.println("Checking if room number already exists");
@@ -271,7 +271,7 @@ public class ManageRoom extends JFrame implements ActionListener {
               null, "Invalid Price", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
           try {
-            String line = "./files/rooms.txt";
+            String line = "./databeast/rooms.txt";
             try {
               File file = new File(line);
               if (!file.exists()) {
@@ -283,7 +283,7 @@ public class ManageRoom extends JFrame implements ActionListener {
                 printWriter.close();
               }
 
-              BufferedReader rdfile3 = new BufferedReader(new FileReader("./files/rooms.txt"));
+              BufferedReader rdfile3 = new BufferedReader(new FileReader("./databeast/rooms.txt"));
               int ttlLines3 = 0;
               while (rdfile3.readLine() != null) {
                 ttlLines3++;
@@ -324,7 +324,7 @@ public class ManageRoom extends JFrame implements ActionListener {
       DefaultTableModel model = (DefaultTableModel) table.getModel();
       model.setRowCount(0);
 
-      try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+      try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
         String line;
         while ((line = br.readLine()) != null) {
           if (!line.equals("Rooms Details")) {
@@ -362,8 +362,8 @@ public class ManageRoom extends JFrame implements ActionListener {
           // Check if the room is not booked
           if (data[4].equals("Not Booked")) {
             try {
-              File inputFile = new File("./files/rooms.txt");
-              File tempFile = new File("./files/rooms_temp.txt");
+              File inputFile = new File("./databeast/rooms.txt");
+              File tempFile = new File("./databeast/rooms_temp.txt");
               System.out.println("temp file created");
 
               // Read the original file and write to the temp file, excluding the room to delete

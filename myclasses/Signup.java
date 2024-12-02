@@ -285,7 +285,7 @@ public class Signup extends JFrame implements ActionListener {
             null, "Password is not matching", " Error!", JOptionPane.WARNING_MESSAGE);
       } else {
         try {
-          File file = new File("./files/user_login.txt");
+          File file = new File("./databeast/user_login.txt");
           if (!file.exists()) {
             // Create a new file if it doesn't exist
             boolean created = file.createNewFile();
@@ -307,7 +307,7 @@ public class Signup extends JFrame implements ActionListener {
 //          // User Login file checked
 //          int totalLines = 0; // Check the total lines in User Login file
           int totalLines = 0;
-          BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
+          BufferedReader readFile = new BufferedReader(new FileReader("./databeast/user_login.txt"));
           while (readFile.readLine() != null) {
 
             totalLines ++;
@@ -315,7 +315,7 @@ public class Signup extends JFrame implements ActionListener {
           readFile.close();
 
           // Admin login file checked
-          BufferedReader adminFile = new BufferedReader(new FileReader("./files/admin_login.txt"));
+          BufferedReader adminFile = new BufferedReader(new FileReader("./databeast/admin_login.txt"));
           int totalLines2 = 0; // Check the total lines in Admin Login file
           while (adminFile.readLine() != null) {
             totalLines2++;
@@ -329,7 +329,7 @@ public class Signup extends JFrame implements ActionListener {
           for (int i = 0;
               i < totalLines;
               i++) { // Check if the username already exists in User Login file
-            String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(i);
+            String line = Files.readAllLines(Paths.get("./databeast/user_login.txt")).get(i);
             if (line.equals("User Name : " + user)) {
               userflag = true;
               System.out.println("User name exists");
@@ -341,7 +341,7 @@ public class Signup extends JFrame implements ActionListener {
           for (int i = 0;
               i < totalLines2;
               i++) { // Check if the username already exists in Admin Login file
-            String line = Files.readAllLines(Paths.get("./files/admin_login.txt")).get(i);
+            String line = Files.readAllLines(Paths.get("./databeast/admin_login.txt")).get(i);
             if (line.equals("User Name : " + user)) {
               System.out.println("User name exists as Admin");
               adminflag = true;

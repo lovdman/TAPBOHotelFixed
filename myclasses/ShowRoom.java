@@ -28,7 +28,7 @@ public class ShowRoom {
     roomNo_Box.removeAllItems();
     cost_fld.setText(null);
 
-    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+    try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
       String line;
       while ((line = br.readLine()) != null) {
         if (line.equals("Rooms Details")) {

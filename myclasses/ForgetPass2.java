@@ -73,7 +73,7 @@ public class ForgetPass2 extends JFrame implements ActionListener {
 
     try {
       int k = ((ForgetPass.deleteLine) + 2);
-      String line1 = Files.readAllLines(Paths.get("./files/user_login.txt")).get(k);
+      String line1 = Files.readAllLines(Paths.get("./databeast/user_login.txt")).get(k);
       String line2 = "";
       line2 = line2 + line1.charAt(16);
       line2 = line2 + line1.charAt(17);
@@ -156,8 +156,8 @@ public class ForgetPass2 extends JFrame implements ActionListener {
           // Calculate the line number to read from the file
           int n = ((ForgetPass.deleteLine) + 2);
           // Read the specified line from the user_login.txt file
-          BufferedReader readFile = new BufferedReader(new FileReader("./files/user_login.txt"));
-          String line = Files.readAllLines(Paths.get("./files/user_login.txt")).get(n);
+          BufferedReader readFile = new BufferedReader(new FileReader("./databeast/user_login.txt"));
+          String line = Files.readAllLines(Paths.get("./databeast/user_login.txt")).get(n);
           // Check if the line matches the formatted phone number
           if (line.equals(user)) {
             System.out.println("User phonenumber found");

@@ -102,7 +102,7 @@ public class DashBoard extends JFrame implements ActionListener {
     Font headerFont = header.getFont();
     header.setFont(headerFont.deriveFont(Font.BOLD)); // Make the font bold
 
-    try (BufferedReader br = new BufferedReader(new FileReader("./files/rooms.txt"))) {
+    try (BufferedReader br = new BufferedReader(new FileReader("./databeast/rooms.txt"))) {
       String line;
       while ((line = br.readLine()) != null) {
         if (!line.equals("Rooms Details")) {
@@ -114,7 +114,7 @@ public class DashBoard extends JFrame implements ActionListener {
             rowData[i] = br.readLine();
           } // set the last element to empty string
 
-          try (BufferedReader br2 = new BufferedReader(new FileReader("./files/checkIn.txt"))) {
+          try (BufferedReader br2 = new BufferedReader(new FileReader("./databeast/checkIn.txt"))) {
             String line2;
             while ((line2 = br2.readLine()) != null) {
               if (!line2.equals("Check In Details")) {

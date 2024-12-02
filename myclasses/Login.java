@@ -92,7 +92,7 @@ public class Login extends JFrame implements ActionListener {
     BufferedImage imgOn = null;
     BufferedImage imgOff = null;
     try {
-      // Read in the image files from resources
+      // Read in the image databeast from resources
       imgOn = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/show.png")));
       imgOff = ImageIO.read(Objects.requireNonNull(Login.class.getResource("../images/hide.png")));
 
@@ -238,7 +238,7 @@ public class Login extends JFrame implements ActionListener {
         try {
           // Check if the admin login file exists, if not create it and add default admin
           // credentials
-          File file = new File("./files/admin_login.txt");
+          File file = new File("./databeast/admin_login.txt");
           if (!file.exists()) {
             boolean created = file.createNewFile();
             if (created) {
@@ -262,7 +262,7 @@ public class Login extends JFrame implements ActionListener {
           String pin = "Password : " + pass;
 
           // Check if the user is an admin by reading the admin login file
-          BufferedReader readFile1 = new BufferedReader(new FileReader("./files/admin_login.txt"));
+          BufferedReader readFile1 = new BufferedReader(new FileReader("./databeast/admin_login.txt"));
 
           int totalLines1 = 0;
           while (readFile1.readLine() != null) {
@@ -272,7 +272,7 @@ public class Login extends JFrame implements ActionListener {
 
           // Iterate over each line in the admin login file and check if the user credentials match
           for (int i = 0; i < totalLines1; i++) {
-            Path adminLoginPath = Paths.get("./files/admin_login.txt");
+            Path adminLoginPath = Paths.get("./databeast/admin_login.txt");
             String line = Files.readAllLines(adminLoginPath).get(i);
             if (line.equals(uname)) {
               String line2 = Files.readAllLines(adminLoginPath).get((i + 1));
@@ -299,11 +299,11 @@ public class Login extends JFrame implements ActionListener {
           // Check if the user is a regular user
           if (!isAdmin) { // Check if the user is not an admin
             // Read the user_login.txt file
-            File userfile = new File("./files/user_login.txt");
+            File userfile = new File("./databeast/user_login.txt");
             if (userfile.exists()) { // Check if the file exists
               // Create a buffered reader to read the file
               BufferedReader readFile =
-                  new BufferedReader(new FileReader("./files/user_login.txt"));
+                  new BufferedReader(new FileReader("./databeast/user_login.txt"));
               int totalLines = 0;
               // Count the total number of lines in the file
               while (readFile.readLine() != null) {
@@ -314,7 +314,7 @@ public class Login extends JFrame implements ActionListener {
               // Loop through each line of the file
               for (int i = 0; i < totalLines; i++) {
                 // Get the i-th line of the file
-                Path userLoginPath = Paths.get("./files/user_login.txt");
+                Path userLoginPath = Paths.get("./databeast/user_login.txt");
                 String line = Files.readAllLines(userLoginPath).get(i);
                 // Check if the username matches the i-th line of the file
                 if (line.equals(uname)) {
