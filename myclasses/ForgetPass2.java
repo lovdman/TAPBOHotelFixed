@@ -34,7 +34,7 @@ public class ForgetPass2 extends JFrame implements ActionListener {
   public ForgetPass2() {
     System.out.println("Currently in ForgetPass2 class");
     setResizable(false);
-    setTitle("The Tipton Hotel Management System");
+    setTitle("Bagogo Hotel");
     setIconImage(
         Toolkit.getDefaultToolkit().getImage(Login.class.getResource("../images/titleIcon.png")));
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

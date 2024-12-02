@@ -51,7 +51,7 @@ public class Edit extends JFrame implements ActionListener {
   public Edit() {
     System.out.println("Currently in Edit class");
     setResizable(false);
-    setTitle("The Tipton Hotel Management System");
+    setTitle("Bagogo hotel");
     setIconImage(
         Toolkit.getDefaultToolkit().getImage(Profile.class.getResource("../images/titleIcon.png")));
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

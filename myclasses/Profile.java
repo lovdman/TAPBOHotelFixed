@@ -29,7 +29,7 @@ public class Profile extends JFrame implements ActionListener {
   public Profile() {
     System.out.println("Currently in Profile class");
     setResizable(false);
-    setTitle("The Tipton Hotel Management System");
+    setTitle("Bagogo Hotel");
     setIconImage(
         Toolkit.getDefaultToolkit().getImage(Profile.class.getResource("../images/titleIcon.png")));
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
